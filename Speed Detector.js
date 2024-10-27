@@ -1,4 +1,4 @@
-function getSpeed(){
+function getSpeed( getSpeed){
     let speed = parseInt(prompt("Enter car speed"))
 }
 if (speed <= 70){
