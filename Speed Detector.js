@@ -1,18 +1,16 @@
-function getSpeed( getSpeed){
-    let speed = parseInt(prompt("Enter car speed"))
-}
-if (speed <= 70){
-    console.log(window.alert("OK"))
-}
-else{
-    let demeritpoints = math.floor((speed - 70)/5);
-    console.log(window.alert('points: ${demeritPoints}'));
-    if(demeritpoints > 12){
-        console.log(Window.alert("Licence Suspended"));
+function getSpeed() {
+    let speed = parseInt(prompt("Enter car speed"));
+
+    if (speed < 70) {
+        window.alert("OK");
+    } else {
+        let demeritPoints = Math.floor((speed - 70) / 5);
+        window.alert(`Points: ${demeritPoints}`);
         
-    }else{
-        console.log('Points: ${demeritpoints}');
+        if (demeritPoints > 12) {
+            window.alert("License Suspended");
+        }
     }
-    
 }
+
 getSpeed();
