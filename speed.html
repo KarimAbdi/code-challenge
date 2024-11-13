@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Check</title>
+</head>
+<body>
+    <script>
+        function getSpeed() {
+            let speed = prompt("Enter car speed");
+            
+            // Validate if the input is a number
+            speed = parseInt(speed);
+
+            // Check if the input is not a number or is a negative value
+            if (isNaN(speed) || speed < 0) {
+                alert("Please enter a valid positive number.");
+                return;  // Exit the function if the input is invalid
+            }
+
+            if (speed < 70) {
+                alert("OK");
+            } else {
+                let demeritPoints = Math.floor((speed - 70) / 5);
+                alert(`Points: ${demeritPoints}`);
+                
+                if (demeritPoints > 12) {
+                    alert("License Suspended");
+                }
+            }
+        }
+
+        // Call the function to get speed input
+        getSpeed();
+    </script>
+</body>
+</html>

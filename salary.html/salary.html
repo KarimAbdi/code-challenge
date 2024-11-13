@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Calculator</title>
+</head>
+<body>
+    <button onclick="netpay()">Calculate Net Salary</button>
+    
+    <script>
+        function netpay() {
+            // Constants for calculations
+            const TaxRate = 0.3;  // PAYE tax rate (30%)
+            const nhifRate = 0.02;  // NHIF deduction rate (2%)
+            const nssfRate = 0.01;  // NSSF deduction rate (1%)
+
+            // Input basic salary and allowances
+            const basicSalary = parseFloat(prompt("Enter basic salary"));
+            const allowance = parseFloat(prompt("Enter total allowance"));
+
+            // Check for invalid inputs (NaN or null)
+            if (isNaN(basicSalary) || isNaN(allowance)) {
+                alert("Please enter valid numbers for salary and allowances.");
+                return;
+            }
+
+            // Calculate gross salary
+            const grossSalary = basicSalary + allowance;
+
+            // Calculate deductions
+            const nssfDeduction = Math.min(grossSalary * nssfRate);
+            const nhifDeduction = Math.min(grossSalary * nhifRate);
+
+            // Calculate PAYE (Tax)
+            const paye = Math.max(grossSalary - nhifDeduction - nssfDeduction, 0) * TaxRate;
+
+            // Calculate net salary
+            const netSalary = grossSalary - nhifDeduction - nssfDeduction - paye;
+
+            // Display results
+            alert(`NHIF deduction: ${nhifDeduction.toFixed(2)}`);
+            alert(`NSSF deduction: ${nssfDeduction.toFixed(2)}`);
+            alert(`PAYE: ${paye.toFixed(2)}`);
+            alert(`Gross salary: ${grossSalary.toFixed(2)}`);
+            alert(`Net salary: ${netSalary.toFixed(2)}`);
+        }
+    </script>
+</body>
+</html>
